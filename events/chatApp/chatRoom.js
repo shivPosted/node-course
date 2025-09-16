@@ -20,9 +20,10 @@ class ChatRoom extends EventEmitter {
 
   leave(user) {
     if (!this.users.has(user)) {
-      return console.log("There is no one named ${user} in the chatroom");
+      return console.log(`There is no one named ${user} in the chatroom`);
     }
     this.emit("leave", user);
+    this.users.delete(user);
   }
 }
 
